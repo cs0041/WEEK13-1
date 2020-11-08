@@ -1,9 +1,22 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+void Error()
+{
+	cout << "ERROE" << endl;
+}
+void Readss()
+{
+	cout << "read suscess" << endl;
+
+}
+void Writer()  
+{
+	cout << "writer suscess" << endl;
+}
 int main()
 {
-STAR:
+	STAR:
 	int score[5];
 	for (int i = 0; i < 5; i++)
 	{
@@ -18,14 +31,14 @@ STAR:
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			readfile >> score[i];
-			cout << i + 1 << ". : " << score[i] << endl;
+			readfile >> score[i]  ;
+			cout << i+1<<". : " << score[i] << endl;
 		}
-		cout << "read suscess" << endl;
+		Readss();
 	}
 	else
 	{
-		cout << "ERROE" << endl;
+		Error();
 	}
 	readfile.close();
 
@@ -39,20 +52,20 @@ STAR:
 		{
 			if (score_now > score[i])
 			{
-				index_score = i;
+				index_score = i; 
 				index_on = true;
 				break;
 			}
 		}
-
+		
 		if (index_on)
 		{
 			for (int i = 4; i > index_score; i--)
 			{
 				score[i] = score[i - 1];
-
+			
 			}
-
+		
 			score[index_score] = score_now;
 
 
@@ -63,13 +76,13 @@ STAR:
 			cout << i + 1 << ". : " << score[i] << endl;
 		}
 		cout << "BEST SCORE : " << score[0] << endl;
-		cout << "writer suscess" << endl;
+		Writer();
 	}
 	else
 	{
-		cout << "ERROE" << endl;
+		Error();
 	}
-
+	
 	writer.close();
 
 	goto STAR;
